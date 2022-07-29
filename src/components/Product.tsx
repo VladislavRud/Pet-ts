@@ -9,7 +9,8 @@ interface ProductProps {
 function Product({product}: ProductProps) {
     const [details, setDetails] = useState(false)
     
-    
+    const btnBgClassName = details ? 'bg-yellow-400' : 'bg-blue-400'
+    const btnClasses = ["py-2 px-4 border", btnBgClassName]
 
   return (
     <div
@@ -18,7 +19,7 @@ function Product({product}: ProductProps) {
     <img src={product.image} className="w-1/6" alt={product.title}/>
     <p>{product.title}</p>
     <p className="font-bold">{product.price}</p>
-    <button className="py-2 px-4 border bg-yellow-400" onClick={() => setDetails(prev=> !prev)}>{details ? "Скрыть описание" :  "Показать описание" }</button>
+    <button className={btnClasses.join(' ')} onClick={() => setDetails(prev=> !prev)}>{details ? "Скрыть описание" :  "Показать описание" }</button>
  {  details && <div >
         <p>{product.description}</p>
     </div>}

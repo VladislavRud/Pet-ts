@@ -22,6 +22,7 @@ function Product({product}: ProductProps) {
     <button className={btnClasses.join(' ')} onClick={() => setDetails(prev=> !prev)}>{details ? "Скрыть описание" :  "Показать описание" }</button>
  {  details && <div >
         <p>{product.description}</p>
+        <p>Rate: <span style={{fontWeight: 'bold'}}>{product.rating.rate}</span></p>
     </div>}
     </div>
   )
